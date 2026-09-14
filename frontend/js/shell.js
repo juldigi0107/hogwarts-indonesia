@@ -12,7 +12,7 @@ function installSettings(){
 }
 
 export function upgradeShell(){
-  const styles=['tokens.css','base.css','layout.css','components.css','animations.css','responsive.css'];
+  const styles=['tokens.css','base.css','layout.css','components.css','animations.css','responsive.css','deep-dive.css'];
   for(const file of styles){if(!document.querySelector(`link[href$="${file}"]`)){const link=document.createElement('link');link.rel='stylesheet';link.href=new URL(`../css/${file}`,import.meta.url);document.head.append(link)}}
   document.querySelector('link[href$="app.css"]')?.remove();
   let meta=document.querySelector('meta[name="api-base"]');if(!meta){meta=document.createElement('meta');meta.name='api-base';meta.content='';document.head.append(meta)}
