@@ -1,5 +1,5 @@
 name = "hogwarts-indonesia-api"
-main = "src/index-v2.js"
+main = "src/index-v3.js"
 compatibility_date = "2026-09-01"
 
 [vars]
