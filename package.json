@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "build": "node scripts/build-v2.mjs && node scripts/postbuild-graph.mjs && node scripts/validate-build.mjs"
+    "build": "node scripts/build-v2.mjs && node scripts/postbuild-graph.mjs && node scripts/validate-build.mjs",
+    "seed:generate": "node scripts/seed/generate-scale-sql.mjs"
   }
 }

@@ -17,7 +17,9 @@ jobs:
         run: find frontend/js worker/src scripts \( -name '*.js' -o -name '*.mjs' \) -print0 | sort -z | xargs -0 -n1 node --check
       - run: npm test
       - run: npm run build
-      - name: Validate SQL migrations and domain coverage
+      - name: Generate deterministic D1 scale seed
+        run: npm run seed:generate
+      - name: Validate SQL migrations, generated seed and domain coverage
         run: |
           python3 - <<'PY'
           import sqlite3
@@ -26,6 +28,9 @@ jobs:
           for p in sorted(Path('worker/migrations').glob('*.sql')):
               print('apply', p)
               db.executescript(p.read_text())
+          scale_seed = Path('worker/seeds/scale.sql')
+          assert scale_seed.exists(), 'generated scale seed is missing'
+          db.executescript(scale_seed.read_text())
           required = {
               'users','roles','user_roles','sessions','content','content_sections','categories',
               'content_categories','characters','creatures','spells','potions','artifacts','plants',
@@ -38,9 +43,9 @@ jobs:
           assert not missing, f'missing tables: {missing}'
           assert db.execute('SELECT count(*) FROM categories').fetchone()[0] == 12
           assert db.execute('SELECT count(*) FROM content').fetchone()[0] >= 12
-          assert db.execute('SELECT count(*) FROM characters').fetchone()[0] >= 10
-          assert db.execute('SELECT count(*) FROM creatures').fetchone()[0] >= 6
-          assert db.execute('SELECT count(*) FROM spells').fetchone()[0] >= 7
+          assert db.execute('SELECT count(*) FROM characters').fetchone()[0] >= 100
+          assert db.execute('SELECT count(*) FROM creatures').fetchone()[0] >= 50
+          assert db.execute('SELECT count(*) FROM spells').fetchone()[0] >= 70
           assert db.execute('SELECT count(*) FROM potions').fetchone()[0] >= 4
           assert db.execute('SELECT count(*) FROM artifacts').fetchone()[0] >= 4
           assert db.execute('SELECT count(*) FROM plants').fetchone()[0] >= 4
@@ -48,10 +53,16 @@ jobs:
           assert db.execute('SELECT count(*) FROM glossary').fetchone()[0] >= 10
           assert db.execute('SELECT count(*) FROM events').fetchone()[0] >= 8
           assert db.execute('SELECT count(*) FROM relationships').fetchone()[0] >= 8
+          assert db.execute('SELECT count(*) FROM sources WHERE id=2080').fetchone()[0] == 1
           assert not db.execute('PRAGMA foreign_key_check').fetchall()
-          print('SQLite migrations, seeds and foreign keys passed')
+          print('SQLite migrations, scale seed and foreign keys passed')
+          print('characters', db.execute('SELECT count(*) FROM characters').fetchone()[0])
+          print('creatures', db.execute('SELECT count(*) FROM creatures').fetchone()[0])
+          print('spells', db.execute('SELECT count(*) FROM spells').fetchone()[0])
           PY
       - uses: actions/upload-artifact@v4
         with:
           name: hogwarts-indonesia-frontend
-          path: dist
+          path: |
+            dist
+            worker/seeds/scale.sql
