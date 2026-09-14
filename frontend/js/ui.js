@@ -1,4 +1,4 @@
-export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const routeLink=(path,label,cls='')=>`<a${cls?` class="${esc(cls)}"`:''} href="#${esc(path)}">${label}</a>`;
 const palettes=[['#16263a','#6d461f'],['#172a22','#56411c'],['#1e2431','#6e0f19'],['#1b2932','#234c3e'],['#241c2c','#5c2d54'],['#1d2a24','#6c5522'],['#2c1e26','#213e34'],['#122538','#5e481e'],['#1f2a31','#593721'],['#252137','#6f4723'],['#162536','#3d4d64'],['#231d31','#5b3c20']];
 const typeLabel={article:'Artikel',character:'Tokoh',creature:'Makhluk',spell:'Mantra',potion:'Ramuan',artifact:'Artefak',location:'Lokasi',glossary:'Glosarium'};
