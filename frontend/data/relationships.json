@@ -1,0 +1,25 @@
+{
+  "nodes":[
+    {"id":"char:harry-potter","type":"character","label":"Harry Potter","href":"#/tokoh"},
+    {"id":"char:hermione-granger","type":"character","label":"Hermione Granger","href":"#/tokoh"},
+    {"id":"char:ron-weasley","type":"character","label":"Ron Weasley","href":"#/tokoh"},
+    {"id":"char:draco-malfoy","type":"character","label":"Draco Malfoy","href":"#/tokoh"},
+    {"id":"char:sirius-black","type":"character","label":"Sirius Black","href":"#/tokoh"},
+    {"id":"loc:hogwarts","type":"location","label":"Hogwarts","href":"#/hogwarts"},
+    {"id":"loc:azkaban","type":"location","label":"Azkaban","href":"#/lokasi"},
+    {"id":"creature:dementor","type":"creature","label":"Dementor","href":"#/makhluk"},
+    {"id":"spell:patronus","type":"spell","label":"Patronus Charm","href":"#/grimoire/mantra"},
+    {"id":"artifact:marauders-map","type":"artifact","label":"Marauder's Map","href":"#/grimoire/artefak"}
+  ],
+  "edges":[
+    {"source":"char:harry-potter","target":"char:hermione-granger","label":"sahabat"},
+    {"source":"char:harry-potter","target":"char:ron-weasley","label":"sahabat"},
+    {"source":"char:harry-potter","target":"char:draco-malfoy","label":"rival sekolah"},
+    {"source":"char:sirius-black","target":"char:harry-potter","label":"ayah baptis"},
+    {"source":"char:harry-potter","target":"loc:hogwarts","label":"murid di"},
+    {"source":"creature:dementor","target":"loc:azkaban","label":"penjaga pada periode penting"},
+    {"source":"spell:patronus","target":"creature:dementor","label":"pertahanan terhadap"},
+    {"source":"artifact:marauders-map","target":"loc:hogwarts","label":"memetakan"}
+  ],
+  "note":"Graph ini adalah seed editorial untuk menunjukkan hubungan yang didukung sumber; bukan peta sosial lengkap."
+}
