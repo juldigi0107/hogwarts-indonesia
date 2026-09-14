@@ -3,7 +3,7 @@ import {readList,getPreference,setPreference} from './state.js';
 import {statusBlock} from './ui.js';
 import {installAccessibility,focusMain} from './accessibility.js';
 import {renderHome,renderIndex,renderArticle} from './pages-core.js';
-import {renderEntity,renderMap,renderTimeline,renderGlossary,renderGrimoireHub} from './pages-explore.js';
+import {renderEntity,renderEntityDetail,renderMap,renderTimeline,renderGlossary,renderGrimoireHub} from './pages-explore.js';
 import {renderRelationshipGraph} from './pages-graph.js';
 import {renderPersonal,renderSources,renderCredits,renderAbout,renderMissing} from './pages-meta.js';
 
@@ -16,6 +16,16 @@ const onRendered=()=>dispatchEvent(new CustomEvent('hi:route-rendered'));
 const notice=text=>{if(!noticeEl)return;noticeEl.textContent=text;clearTimeout(timer);timer=setTimeout(()=>noticeEl.textContent='',4200)};
 const routeState=()=>{const raw=location.hash.slice(1)||'/';const [path,query='']=raw.split('?');return{path,params:new URLSearchParams(query)}};
 const categoryFor=path=>categories.find(c=>`/${c.slug}`===path);
+const detailRoutes=[
+  {prefix:'/tokoh/',kind:'characters',sectionTitle:'Tokoh',baseRoute:'/tokoh'},
+  {prefix:'/makhluk/',kind:'creatures',sectionTitle:'Makhluk Sihir',baseRoute:'/makhluk'},
+  {prefix:'/lokasi/',kind:'locations',sectionTitle:'Lokasi Ikonik',baseRoute:'/lokasi'},
+  {prefix:'/herbologi/',kind:'plants',sectionTitle:'Herbologi',baseRoute:'/herbologi'},
+  {prefix:'/astronomi/',kind:'astronomy',sectionTitle:'Astronomi',baseRoute:'/astronomi'},
+  {prefix:'/grimoire/mantra/',kind:'spells',sectionTitle:'Mantra',baseRoute:'/grimoire/mantra'},
+  {prefix:'/grimoire/ramuan/',kind:'potions',sectionTitle:'Ramuan',baseRoute:'/grimoire/ramuan'},
+  {prefix:'/grimoire/artefak/',kind:'artifacts',sectionTitle:'Artefak',baseRoute:'/grimoire/artefak'}
+];
 const syncNav=()=>{const {path}=routeState();document.querySelectorAll('.top-nav a').forEach(a=>{const p=(a.getAttribute('href')||'').replace(/^#/,'');a.toggleAttribute('aria-current',p===path||p!=='/'&&path.startsWith(p))})};
 const finish=title=>{document.title=title==='Hogwarts Indonesia'?title:`${title} — Hogwarts Indonesia`;focusMain();syncNav();onRendered()};
 const missing=()=>renderMissing({main,finish});
@@ -28,6 +38,8 @@ async function route(){
   const {path,params}=routeState();
   if(path==='/')return renderHome({main,categories,articles,progress:explorationProgress(),api,finish,onRendered});
   if(path==='/index')return renderIndex({main,categories,articles,params,api,finish,onRendered});
+  const detail=detailRoutes.find(x=>path.startsWith(x.prefix));
+  if(detail){let slug='';try{slug=decodeURIComponent(path.slice(detail.prefix.length).split('/')[0]||'')}catch{}if(slug)return renderEntityDetail({main,api,kind:detail.kind,slug,sectionTitle:detail.sectionTitle,baseRoute:detail.baseRoute,finish,onRendered,missing})}
   const category=categoryFor(path);
   if(category){
     const relatedArticles=articles.filter(x=>x.category===category.slug);
