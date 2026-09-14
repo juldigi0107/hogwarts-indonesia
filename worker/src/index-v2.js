@@ -1,15 +1,15 @@
 import legacy from './index.js';
 
 const ROUTES={
-  '/characters':{sql:'SELECT id,slug,name,house,affiliation,summary,canon_status,metadata FROM characters ORDER BY name',limit:200},
-  '/creatures':{sql:'SELECT id,slug,name,classification,habitat,danger_level,summary,metadata FROM creatures ORDER BY name',limit:200},
-  '/spells':{sql:'SELECT id,slug,name,incantation,type,purpose,difficulty,legal_status,metadata FROM spells ORDER BY name',limit:250},
-  '/potions':{sql:'SELECT id,slug,name,type,purpose,safety_note,metadata FROM potions ORDER BY name',limit:200},
-  '/artifacts':{sql:'SELECT id,slug,name,type,summary,metadata FROM artifacts ORDER BY name',limit:200},
-  '/plants':{sql:'SELECT id,slug,name,habitat,summary,metadata FROM plants ORDER BY name',limit:200},
-  '/locations':{sql:'SELECT id,slug,name,region,summary,metadata FROM locations ORDER BY name',limit:200},
-  '/glossary':{sql:'SELECT id,term,slug,definition,aliases FROM glossary ORDER BY term',limit:400},
-  '/timeline':{sql:'SELECT e.id,e.slug,e.title,e.year,e.year_label,e.era,e.summary,l.slug AS location_slug,l.name AS location_name FROM events e LEFT JOIN locations l ON l.id=e.location_id ORDER BY CASE WHEN e.year IS NULL THEN 1 ELSE 0 END,e.year,e.id',limit:300},
+  '/characters':{sql:'SELECT id,slug,name,house,affiliation,summary,canon_status,source_id,metadata FROM characters ORDER BY name',limit:200},
+  '/creatures':{sql:'SELECT id,slug,name,classification,habitat,danger_level,summary,source_id,metadata FROM creatures ORDER BY name',limit:200},
+  '/spells':{sql:'SELECT id,slug,name,incantation,type,purpose,difficulty,legal_status,source_id,metadata FROM spells ORDER BY name',limit:250},
+  '/potions':{sql:'SELECT id,slug,name,type,purpose,safety_note,source_id,metadata FROM potions ORDER BY name',limit:200},
+  '/artifacts':{sql:'SELECT id,slug,name,type,summary,source_id,metadata FROM artifacts ORDER BY name',limit:200},
+  '/plants':{sql:'SELECT id,slug,name,habitat,summary,source_id,metadata FROM plants ORDER BY name',limit:200},
+  '/locations':{sql:'SELECT id,slug,name,region,summary,source_id,metadata FROM locations ORDER BY name',limit:200},
+  '/glossary':{sql:'SELECT id,term,slug,definition,aliases,source_id FROM glossary ORDER BY term',limit:400},
+  '/timeline':{sql:'SELECT e.id,e.slug,e.title,e.year,e.year_label,e.era,e.summary,e.source_id,l.slug AS location_slug,l.name AS location_name FROM events e LEFT JOIN locations l ON l.id=e.location_id ORDER BY CASE WHEN e.year IS NULL THEN 1 ELSE 0 END,e.year,e.id',limit:300},
   '/sources':{sql:'SELECT id,title,author,publisher,url,source_type,license,access_date,notes FROM sources ORDER BY id DESC',limit:500}
 };
 
