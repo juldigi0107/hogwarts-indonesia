@@ -1,16 +1,44 @@
 [
   {
-    "id": "hi-monogram",
-    "file": "assets/brand/monogram.svg",
-    "category": "brand",
-    "origin": "generated",
-    "sourceUrl": null,
-    "creator": "Hogwarts Indonesia",
-    "license": "Project-owned original design; trademark clearance not asserted",
-    "attribution": "Original typographic monogram for Hogwarts Indonesia",
-    "accessedAt": "2026-09-14",
-    "usage": "favicon",
-    "alt": "Monogram HI dalam lingkaran emas",
-    "notes": "SVG original; bukan hasil image generation. Hero hasil image generation pada percakapan belum ditransfer ke repository."
+    "id":"hi-monogram",
+    "file":"assets/brand/monogram.svg",
+    "category":"brand",
+    "origin":"generated",
+    "sourceUrl":null,
+    "creator":"Hogwarts Indonesia",
+    "license":"Project-owned original design; trademark clearance not asserted",
+    "attribution":"Original typographic monogram for Hogwarts Indonesia",
+    "accessedAt":"2026-09-14",
+    "usage":["favicon","brand mark"],
+    "alt":"Monogram HI dalam lingkaran emas",
+    "notes":"SVG original; bukan salinan crest resmi."
+  },
+  {
+    "id":"castle-entry-vector",
+    "file":"assets/generated/castle-entry.svg",
+    "category":"castle",
+    "origin":"generated",
+    "sourceUrl":null,
+    "creator":"Hogwarts Indonesia / OpenAI-assisted original artwork",
+    "license":"Project-owned original generated composition",
+    "attribution":"Original fantasy castle illustration created for Hogwarts Indonesia",
+    "accessedAt":"2026-09-14",
+    "usage":["home hero","entry environment"],
+    "alt":"Gerbang kastil fantasi pada malam hari di tepi danau dengan cahaya hangat",
+    "notes":"Komposisi original; tidak menggunakan screenshot film, logo resmi, atau likeness aktor."
+  },
+  {
+    "id":"castle-map-vector",
+    "file":"assets/generated/castle-map.svg",
+    "category":"maps",
+    "origin":"generated",
+    "sourceUrl":null,
+    "creator":"Hogwarts Indonesia / OpenAI-assisted original artwork",
+    "license":"Project-owned original generated composition",
+    "attribution":"Original illustrated navigation map for Hogwarts Indonesia",
+    "accessedAt":"2026-09-14",
+    "usage":["interactive castle map","navigation"],
+    "alt":"Peta ilustratif kastil dengan menara, halaman, rumah kaca, hutan, dan jalur air",
+    "notes":"Peta bersifat editorial dan tidak mengklaim koordinat atau denah canon."
   }
 ]
