@@ -1,0 +1,5 @@
+{
+  "apiBase": "",
+  "environment": "static-fallback",
+  "note": "Set apiBase ke URL Cloudflare Worker production setelah /api/v1/health dan CORS terverifikasi. Jangan menaruh secret di file ini."
+}
