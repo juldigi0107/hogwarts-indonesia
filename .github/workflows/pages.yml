@@ -1,13 +1,19 @@
 name: Deploy Pages
+
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,8 +25,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm test
-      - run: npm run build
+      - name: Verify tests
+        run: npm test
+      - name: Build production Pages artifact
+        run: npm run build
+      - name: Validate representative build outputs
+        run: |
+          test -f dist/index.html
+          test -f dist/sitemap.xml
+          test -f dist/tokoh/harry-potter/index.html
+          test -f dist/makhluk/dementor/index.html
+          test -f dist/grimoire/mantra/expecto-patronum/index.html
+          grep -q 'Hogwarts Indonesia' dist/index.html
+          grep -q 'Harry Potter' dist/tokoh/harry-potter/index.html
+          grep -q 'Dementor' dist/makhluk/dementor/index.html
+          grep -q 'Patronus' dist/grimoire/mantra/expecto-patronum/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -28,3 +47,38 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Smoke-test deployed Pages
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          BASE="${PAGE_URL%/}/"
+          echo "Smoke testing $BASE"
+          paths=(
+            ""
+            "sitemap.xml"
+            "tokoh/harry-potter/"
+            "makhluk/dementor/"
+            "grimoire/mantra/expecto-patronum/"
+          )
+          for attempt in $(seq 1 12); do
+            failed=0
+            for path in "${paths[@]}"; do
+              if ! curl --fail --silent --show-error --location --max-time 20 "${BASE}${path}" -o "/tmp/page-${attempt}.out"; then
+                failed=1
+                break
+              fi
+            done
+            if [ "$failed" -eq 0 ]; then
+              curl --fail --silent --show-error --location "${BASE}" | grep -q 'Hogwarts Indonesia'
+              curl --fail --silent --show-error --location "${BASE}tokoh/harry-potter/" | grep -q 'Harry Potter'
+              curl --fail --silent --show-error --location "${BASE}makhluk/dementor/" | grep -q 'Dementor'
+              curl --fail --silent --show-error --location "${BASE}grimoire/mantra/expecto-patronum/" | grep -q 'Patronus'
+              echo "Live Pages smoke test passed."
+              exit 0
+            fi
+            echo "Pages not fully propagated yet (attempt $attempt/12); retrying in 10 seconds..."
+            sleep 10
+          done
+          echo "Pages deployment did not become healthy within the retry window." >&2
+          exit 1
