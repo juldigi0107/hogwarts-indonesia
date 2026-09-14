@@ -1,0 +1,12 @@
+{
+  "items":[
+    {"slug":"astronomy","name":"Astronomy","type":"Mata pelajaran","summary":"Mata pelajaran Hogwarts yang mempelajari bintang, bulan, planet, konstelasi, dan pembuatan star chart melalui observasi."},
+    {"slug":"astronomy-tower","name":"Astronomy Tower","type":"Lokasi belajar","summary":"Menara tertinggi Hogwarts yang digunakan untuk pelajaran Astronomy dan observasi langit malam."},
+    {"slug":"star-chart","name":"Star Charts","type":"Aktivitas pembelajaran","summary":"Pencatatan dan pemetaan posisi bintang menjadi bagian dari aktivitas kelas Astronomy."},
+    {"slug":"planetary-observation","name":"Planetary Observation","type":"Aktivitas pembelajaran","summary":"Murid mengamati planet dan bulan melalui teleskop serta mempelajari sifat dan pergerakannya."}
+  ],
+  "sources":[
+    {"title":"Astronomy | Official Harry Potter Encyclopedia","url":"https://www.harrypotter.com/fact-file/magical-miscellany/astronomy","accessedAt":"2026-09-14"},
+    {"title":"The Astronomy Tower | Official Harry Potter Encyclopedia","url":"https://www.harrypotter.com/fact-file/locations/the-astronomy-tower","accessedAt":"2026-09-14"}
+  ]
+}
