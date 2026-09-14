@@ -23,7 +23,7 @@ export default {async fetch(request,env,ctx){
   if(invalidOrigin(request,env))return send(request,env,{error:{code:'ORIGIN_NOT_ALLOWED'}},403);
   if(request.method==='GET'&&url.pathname==='/api/v1/astronomy'){
     if(!env.DB)return send(request,env,{error:{code:'DATABASE_NOT_CONFIGURED'}},503);
-    try{const result=await env.DB.prepare('SELECT id,slug,name,type,summary,metadata FROM astronomy_entries ORDER BY id LIMIT 100').all();const items=(result.results||[]).map(row=>{try{row.metadata=JSON.parse(row.metadata)}catch{}return row});return send(request,env,{items},200,'public, max-age=120, s-maxage=600')}catch(error){console.error(JSON.stringify({event:'astronomy_api_error',message:String(error?.message||'unknown').slice(0,120)}));return send(request,env,{error:{code:'INTERNAL_ERROR'}},500)}
+    try{const result=await env.DB.prepare('SELECT id,slug,name,type,summary,source_id,metadata FROM astronomy_entries ORDER BY id LIMIT 100').all();const items=(result.results||[]).map(row=>{try{row.metadata=JSON.parse(row.metadata)}catch{}return row});return send(request,env,{items},200,'public, max-age=120, s-maxage=600')}catch(error){console.error(JSON.stringify({event:'astronomy_api_error',message:String(error?.message||'unknown').slice(0,120)}));return send(request,env,{error:{code:'INTERNAL_ERROR'}},500)}
   }
   if(url.pathname==='/api/v1/admin/diagnostics'){
     if(request.method!=='GET')return send(request,env,{error:{code:'METHOD_NOT_ALLOWED'}},405);
