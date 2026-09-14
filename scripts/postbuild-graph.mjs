@@ -1,0 +1,10 @@
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+const graph=JSON.parse(await readFile('frontend/data/relationships.json','utf8'));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const byId=new Map(graph.nodes.map(n=>[n.id,n]));
+const list=graph.edges.map(e=>{const a=byId.get(e.source),b=byId.get(e.target);return `<li>${esc(a?.label||e.source)} <strong>${esc(e.label)}</strong> ${esc(b?.label||e.target)}</li>`}).join('');
+await mkdir('dist/relasi',{recursive:true});
+await writeFile('dist/relasi/index.html',`<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Relationship Graph — Hogwarts Indonesia</title><meta name="description" content="Relasi terverifikasi awal antara tokoh, lokasi, makhluk, mantra, dan artefak."><link rel="canonical" href="https://juldigi0107.github.io/hogwarts-indonesia/relasi/"><link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"></head><body><main style="max-width:900px;margin:auto;padding:4rem 6vw"><p class="eyebrow">Relationship Graph</p><h1>Jaringan Dunia Sihir</h1><p>${esc(graph.note)}</p><ul>${list}</ul><p><a class="button" href="../#/relasi">Buka graph interaktif</a></p></main></body></html>`);
+const sitemap=await readFile('dist/sitemap.xml','utf8');
+const url='https://juldigi0107.github.io/hogwarts-indonesia/relasi/';
+if(!sitemap.includes(url))await writeFile('dist/sitemap.xml',sitemap.replace('</urlset>',`<url><loc>${url}</loc></url></urlset>`));
