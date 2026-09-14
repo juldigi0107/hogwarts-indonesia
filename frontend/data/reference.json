@@ -1,0 +1,71 @@
+{
+  "characters":[
+    {"slug":"harry-potter","name":"Harry Potter","house":"Gryffindor","summary":"Murid Hogwarts yang tumbuh tanpa mengetahui dunia sihir dan kemudian menjadi pusat konflik melawan Voldemort."},
+    {"slug":"hermione-granger","name":"Hermione Granger","house":"Gryffindor","summary":"Murid kelahiran Muggle yang sangat tekun belajar, kuat dalam pemecahan masalah, dan penting dalam perjalanan Harry serta Ron."},
+    {"slug":"ron-weasley","name":"Ron Weasley","house":"Gryffindor","summary":"Sahabat Harry dan Hermione yang menonjol melalui loyalitas, keberanian, humor, catur sihir, dan Quidditch."},
+    {"slug":"minerva-mcgonagall","name":"Minerva McGonagall","house":"Gryffindor","summary":"Profesor Transfigurasi yang tegas dan adil, Animagus, dan salah satu tokoh penting dalam pertahanan Hogwarts."},
+    {"slug":"severus-snape","name":"Severus Snape","house":"Slytherin","summary":"Penyihir dengan kemampuan kuat pada ramuan, Occlumency, Legilimency, dan duel; perannya terhubung dengan kelompok yang saling berlawanan."},
+    {"slug":"sirius-black","name":"Sirius Black","house":"Gryffindor","summary":"Anggota keluarga Black yang menolak nilai keluarganya, sahabat James Potter, dan figur keluarga penting bagi Harry."},
+    {"slug":"rubeus-hagrid","name":"Rubeus Hagrid","house":"Gryffindor","summary":"Penjaga tanah dan pengajar Pemeliharaan Satwa Gaib yang memiliki kedekatan khusus dengan banyak makhluk sihir."},
+    {"slug":"draco-malfoy","name":"Draco Malfoy","house":"Slytherin","summary":"Murid Slytherin dan rival Harry yang menghadapi tekanan keluarga saat konflik dunia sihir membesar."},
+    {"slug":"lord-voldemort","name":"Lord Voldemort / Tom Riddle","house":"Slytherin","summary":"Penyihir gelap yang mengejar kekuasaan dan keabadian melalui sihir hitam serta menjadi pusat konflik besar."},
+    {"slug":"remus-lupin","name":"Remus Lupin","house":"Gryffindor","summary":"Mantan Marauder dan pengajar Pertahanan terhadap Ilmu Hitam yang membimbing Harry memahami Patronus."}
+  ],
+  "creatures":[
+    {"slug":"dementor","name":"Dementor","classification":"Non-being","habitat":"Azkaban","summary":"Makhluk berjubah yang menguras kebahagiaan dan menimbulkan keputusasaan; Patronus menjadi pertahanan penting."},
+    {"slug":"basilisk","name":"Basilisk","classification":"XXXXX","habitat":"Chamber of Secrets","summary":"Ular raksasa beracun dengan tatapan mematikan dan kaitan khusus dengan Parseltongue."},
+    {"slug":"hippogriff","name":"Hippogriff","classification":"XXX","habitat":"Eropa; Forbidden Forest","summary":"Makhluk setengah elang setengah kuda yang menuntut penghormatan ketika didekati dan mampu terbang."},
+    {"slug":"phoenix","name":"Phoenix","classification":"XXXX","habitat":"Pegunungan","summary":"Burung sihir langka yang dapat lahir kembali dari abu dan memiliki air mata dengan daya penyembuhan."},
+    {"slug":"house-elf","name":"House-elf","classification":"Being","habitat":"Rumah keluarga penyihir; Hogwarts","summary":"Makhluk dengan sihir kuat yang dalam banyak konteks terikat pada keluarga atau tempat yang dilayaninya."},
+    {"slug":"acromantula","name":"Acromantula","classification":"XXXXX","habitat":"Hutan dan koloni besar","summary":"Laba-laba raksasa berbisa yang mampu berbicara dan berbahaya bagi manusia yang memasuki wilayahnya."}
+  ],
+  "spells":[
+    {"slug":"alohomora","name":"Unlocking Charm","incantation":"Alohomora","type":"Charm","purpose":"Membuka banyak kunci dasar kecuali yang dilindungi sihir penangkal tertentu."},
+    {"slug":"expelliarmus","name":"Disarming Charm","incantation":"Expelliarmus","type":"Charm","purpose":"Melucuti tongkat dari lawan dan sering digunakan dalam duel tanpa tujuan melukai."},
+    {"slug":"expecto-patronum","name":"Patronus Charm","incantation":"Expecto Patronum","type":"Charm","purpose":"Menghasilkan pelindung sihir terhadap Dementor dan dapat dipakai untuk menyampaikan pesan."},
+    {"slug":"accio","name":"Summoning Charm","incantation":"Accio","type":"Charm","purpose":"Memanggil objek menuju pengguna sihir."},
+    {"slug":"lumos","name":"Wand-lighting Charm","incantation":"Lumos","type":"Charm","purpose":"Menghasilkan cahaya pada ujung tongkat."},
+    {"slug":"wingardium-leviosa","name":"Levitation Charm","incantation":"Wingardium Leviosa","type":"Charm","purpose":"Membuat objek melayang."},
+    {"slug":"riddikulus","name":"Boggart-Banishing Charm","incantation":"Riddikulus","type":"Spell","purpose":"Mengubah penampilan Boggart menjadi bentuk yang memancing tawa dan membantu mengusirnya."}
+  ],
+  "potions":[
+    {"slug":"polyjuice-potion","name":"Polyjuice Potion","type":"Ramuan transformasi","purpose":"Dalam lore, memungkinkan peminum meniru rupa orang lain untuk waktu terbatas; bukan instruksi praktik nyata."},
+    {"slug":"felix-felicis","name":"Felix Felicis","type":"Ramuan keberuntungan","purpose":"Ramuan fiksi yang diasosiasikan dengan periode keberuntungan bagi peminumnya."},
+    {"slug":"veritaserum","name":"Veritaserum","type":"Ramuan kebenaran","purpose":"Ramuan fiksi yang dikaitkan dengan dorongan untuk mengatakan kebenaran."}
+  ],
+  "artifacts":[
+    {"slug":"sorting-hat","name":"Sorting Hat","type":"Artefak Hogwarts","summary":"Topi sihir yang menentukan asrama murid baru di Hogwarts."},
+    {"slug":"invisibility-cloak","name":"Invisibility Cloak","type":"Artefak","summary":"Jubah yang membuat pemakainya tidak terlihat dan memainkan peran penting dalam perjalanan Harry."},
+    {"slug":"time-turner","name":"Time-Turner","type":"Artefak","summary":"Perangkat sihir yang berhubungan dengan perjalanan waktu dan berada di bawah pengawasan ketat."}
+  ],
+  "locations":[
+    {"slug":"hogwarts","name":"Hogwarts","region":"Scottish Highlands","summary":"Sekolah sihir dalam kastil besar dengan aula, perpustakaan, dungeon, menara, lorong rahasia, dan banyak ruang lain."},
+    {"slug":"diagon-alley","name":"Diagon Alley","region":"London","summary":"Kawasan perbelanjaan utama komunitas sihir Inggris yang tersembunyi dari dunia Muggle."},
+    {"slug":"hogsmeade","name":"Hogsmeade","region":"Scottish Highlands","summary":"Permukiman sihir dekat Hogwarts dengan toko, pub, dan jalur rahasia menuju sekolah."},
+    {"slug":"ministry-of-magic","name":"Ministry of Magic","region":"London","summary":"Pusat pemerintahan komunitas sihir Inggris dengan banyak departemen."},
+    {"slug":"azkaban","name":"Azkaban","region":"North Sea","summary":"Penjara terpencil yang lama dijaga Dementor dan menampung penyihir berbahaya."},
+    {"slug":"gringotts","name":"Gringotts","region":"Diagon Alley","summary":"Bank sihir yang dioperasikan goblin dengan jaringan ruang bawah tanah dan perlindungan kuat."}
+  ],
+  "timeline":[
+    {"slug":"hogwarts-founded","title":"Pendirian Hogwarts","year_label":"sekitar abad ke-10","era":"Awal sejarah sekolah","summary":"Hogwarts didirikan oleh empat pendiri yang kemudian diasosiasikan dengan empat asrama."},
+    {"slug":"chamber-opened","title":"Pembukaan Chamber of Secrets","year_label":"tahun kedua Harry","era":"Masa sekolah Harry","summary":"Serangkaian serangan membuat penghuni Hogwarts membatu dan mengungkap rahasia lama di bawah kastil."},
+    {"slug":"triwizard-tournament","title":"Triwizard Tournament di Hogwarts","year_label":"tahun keempat Harry","era":"Masa sekolah Harry","summary":"Hogwarts menjadi tuan rumah Turnamen Triwizard yang mempertemukan tiga sekolah sihir."},
+    {"slug":"harry-hearing","title":"Sidang Harry di Kementerian","year_label":"sebelum tahun kelima Harry","era":"Masa sekolah Harry","summary":"Harry menghadapi pemeriksaan resmi terkait penggunaan sihir di bawah umur dalam konteks serangan Dementor."},
+    {"slug":"ministry-battle","title":"Pertempuran di Kementerian","year_label":"akhir tahun kelima Harry","era":"Perang Sihir Kedua","summary":"Dumbledore's Army, Order of the Phoenix, dan Death Eaters berhadapan di Departemen Misteri."},
+    {"slug":"battle-of-hogwarts","title":"Pertempuran Hogwarts","year_label":"akhir Perang Sihir Kedua","era":"Perang Sihir Kedua","summary":"Hogwarts menjadi lokasi pertempuran besar yang menentukan akhir konflik utama melawan Voldemort."}
+  ],
+  "glossary":[
+    {"term":"Animagus","slug":"animagus","definition":"Penyihir yang dapat berubah menjadi hewan tertentu melalui kemampuan sihir khusus."},
+    {"term":"Azkaban","slug":"azkaban","definition":"Penjara untuk penyihir berbahaya yang terletak di Laut Utara."},
+    {"term":"Dementor","slug":"dementor","definition":"Makhluk non-being yang menguras kebahagiaan dan dapat melakukan Dementor's Kiss."},
+    {"term":"Hogwarts","slug":"hogwarts","definition":"Sekolah sihir di dataran tinggi Skotlandia dalam sebuah kastil besar."},
+    {"term":"Hogsmeade","slug":"hogsmeade","definition":"Permukiman sihir di dekat Hogwarts."},
+    {"term":"Patronus","slug":"patronus","definition":"Manifestasi perlindungan sihir yang dapat mengambil bentuk hewan dan digunakan menghadapi Dementor."},
+    {"term":"Parseltongue","slug":"parseltongue","definition":"Kemampuan langka untuk berbicara dengan ular."},
+    {"term":"Quidditch","slug":"quidditch","definition":"Olahraga sihir beregu yang dimainkan di udara dengan sapu dan beberapa jenis bola."},
+    {"term":"Wizengamot","slug":"wizengamot","definition":"Lembaga yudisial dan dewan penting dalam pemerintahan sihir Inggris."},
+    {"term":"Occlumency","slug":"occlumency","definition":"Seni melindungi pikiran dari pembacaan melalui Legilimency."},
+    {"term":"Legilimency","slug":"legilimency","definition":"Kemampuan sihir untuk menembus atau membaca pikiran dan ingatan orang lain."},
+    {"term":"Horcrux","slug":"horcrux","definition":"Wadah yang terkait dengan sihir gelap untuk menyimpan bagian jiwa."}
+  ]
+}
