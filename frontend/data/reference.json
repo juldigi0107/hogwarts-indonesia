@@ -30,13 +30,21 @@
   ],
   "potions":[
     {"slug":"polyjuice-potion","name":"Polyjuice Potion","type":"Ramuan transformasi","purpose":"Dalam lore, memungkinkan peminum meniru rupa orang lain untuk waktu terbatas; bukan instruksi praktik nyata."},
-    {"slug":"felix-felicis","name":"Felix Felicis","type":"Ramuan keberuntungan","purpose":"Ramuan fiksi yang diasosiasikan dengan periode keberuntungan bagi peminumnya."},
-    {"slug":"veritaserum","name":"Veritaserum","type":"Ramuan kebenaran","purpose":"Ramuan fiksi yang dikaitkan dengan dorongan untuk mengatakan kebenaran."}
+    {"slug":"felix-felicis","name":"Felix Felicis","type":"Ramuan keberuntungan","purpose":"Ramuan fiksi yang diasosiasikan dengan periode keberuntungan bagi peminumnya; bukan petunjuk konsumsi nyata."},
+    {"slug":"veritaserum","name":"Veritaserum","type":"Ramuan kebenaran","purpose":"Ramuan fiksi yang dikaitkan dengan dorongan untuk mengatakan kebenaran; bukan panduan penggunaan zat terhadap orang lain."},
+    {"slug":"mandrake-restorative-draught","name":"Mandrake Restorative Draught","type":"Ramuan restoratif","purpose":"Dalam lore, digunakan untuk memulihkan korban petrifikasi atau kutukan tertentu; bukan terapi medis."}
   ],
   "artifacts":[
     {"slug":"sorting-hat","name":"Sorting Hat","type":"Artefak Hogwarts","summary":"Topi sihir yang menentukan asrama murid baru di Hogwarts."},
     {"slug":"invisibility-cloak","name":"Invisibility Cloak","type":"Artefak","summary":"Jubah yang membuat pemakainya tidak terlihat dan memainkan peran penting dalam perjalanan Harry."},
-    {"slug":"time-turner","name":"Time-Turner","type":"Artefak","summary":"Perangkat sihir yang berhubungan dengan perjalanan waktu dan berada di bawah pengawasan ketat."}
+    {"slug":"time-turner","name":"Time-Turner","type":"Artefak","summary":"Perangkat sihir yang berhubungan dengan perjalanan waktu dan berada di bawah pengawasan ketat."},
+    {"slug":"marauders-map","name":"Marauder's Map","type":"Peta sihir","summary":"Peta Hogwarts yang memperlihatkan struktur sekolah serta pergerakan penghuni di dalamnya."}
+  ],
+  "plants":[
+    {"slug":"mandrake","name":"Mandrake","habitat":"Greenhouses; habitat tanaman sihir","summary":"Tanaman sihir dengan daya restoratif dalam lore; tangis spesimen dewasa berbahaya bagi manusia."},
+    {"slug":"devils-snare","name":"Devil's Snare","habitat":"Lingkungan gelap dan lembap","summary":"Tanaman berbahaya dengan sulur yang dapat menjerat korban dan sensitif terhadap cahaya serta panas dalam lore."},
+    {"slug":"gillyweed","name":"Gillyweed","habitat":"Mediterranean Sea","summary":"Tanaman sihir yang dalam lore memberi kemampuan bernapas dan berenang di bawah air untuk waktu tertentu."},
+    {"slug":"whomping-willow","name":"Whomping Willow","habitat":"Hogwarts grounds","summary":"Pohon agresif yang menjaga jalan rahasia menuju Shrieking Shack dan dapat menyerang objek di dekatnya."}
   ],
   "locations":[
     {"slug":"hogwarts","name":"Hogwarts","region":"Scottish Highlands","summary":"Sekolah sihir dalam kastil besar dengan aula, perpustakaan, dungeon, menara, lorong rahasia, dan banyak ruang lain."},
