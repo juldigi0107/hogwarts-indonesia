@@ -1,0 +1,13 @@
+PRAGMA foreign_keys=ON;
+CREATE TABLE categories(id INTEGER PRIMARY KEY,slug TEXT NOT NULL UNIQUE,title TEXT NOT NULL,subtitle TEXT NOT NULL DEFAULT '');
+CREATE TABLE content(id INTEGER PRIMARY KEY,slug TEXT NOT NULL UNIQUE,category TEXT NOT NULL REFERENCES categories(slug),title TEXT NOT NULL,intro TEXT NOT NULL,document TEXT NOT NULL CHECK(json_valid(document)),status TEXT NOT NULL DEFAULT 'draft' CHECK(status IN ('draft','published')),revision INTEGER NOT NULL DEFAULT 1,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,published_at TEXT,deleted_at TEXT);
+CREATE INDEX content_public ON content(status,deleted_at,category);
+CREATE VIRTUAL TABLE content_fts USING fts5(title,intro,slug UNINDEXED,tokenize='unicode61');
+CREATE TRIGGER content_ai AFTER INSERT ON content BEGIN INSERT INTO content_fts(rowid,title,intro,slug) VALUES(new.id,new.title,new.intro,new.slug); END;
+CREATE TRIGGER content_ad AFTER DELETE ON content BEGIN DELETE FROM content_fts WHERE rowid=old.id; END;
+CREATE TRIGGER content_au AFTER UPDATE ON content BEGIN DELETE FROM content_fts WHERE rowid=old.id; INSERT INTO content_fts(rowid,title,intro,slug) VALUES(new.id,new.title,new.intro,new.slug); END;
+CREATE TABLE sources(id INTEGER PRIMARY KEY,title TEXT NOT NULL,author TEXT,publisher TEXT,url TEXT,source_type TEXT NOT NULL,license TEXT,access_date TEXT,notes TEXT);
+CREATE TABLE content_sources(content_id INTEGER NOT NULL REFERENCES content(id),source_id INTEGER NOT NULL REFERENCES sources(id),PRIMARY KEY(content_id,source_id));
+CREATE TABLE assets(id TEXT PRIMARY KEY,file TEXT NOT NULL UNIQUE,metadata TEXT NOT NULL CHECK(json_valid(metadata)),created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE admin_audit_logs(id INTEGER PRIMARY KEY,action TEXT NOT NULL,content_id INTEGER,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE settings(key TEXT PRIMARY KEY,value TEXT NOT NULL CHECK(json_valid(value)));

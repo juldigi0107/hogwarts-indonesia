@@ -1,0 +1,4 @@
+const CACHE='hi-shell-v1';const BASE=new URL('./',self.location).href;const CORE=['','index.html','css/app.css','js/app.js','js/search.js','data/catalog.json','assets/brand/monogram.svg','manifest.webmanifest'].map(p=>new URL(p,BASE).href);
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE))));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('hi-shell-')&&k!==CACHE).map(k=>caches.delete(k))))));
+self.addEventListener('fetch',e=>{const r=e.request,u=new URL(r.url);if(r.method!=='GET'||u.origin!==self.location.origin||!CORE.includes(u.href))return;e.respondWith(fetch(r).then(res=>{if(res.ok){const copy=res.clone();e.waitUntil(caches.open(CACHE).then(c=>c.put(r,copy)))}return res}).catch(()=>caches.match(r).then(res=>res||new Response('Offline',{status:503}))));});

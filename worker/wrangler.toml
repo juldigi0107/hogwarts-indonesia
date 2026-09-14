@@ -1,0 +1,11 @@
+name = "hogwarts-indonesia-api"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://juldigi0107.github.io"
+
+# Tambahkan binding D1 bernama DB sesudah database dibuat.
+# database_id harus berasal dari akun Cloudflare tujuan; jangan gunakan ID contoh.
+# Admin API menolak akses sampai ADMIN_TOKEN (secret >=32 karakter)
+# dan ADMIN_RATE_LIMITER (Workers rate limiting binding) tersedia.

@@ -1,0 +1,18 @@
+{
+  "name": "Hogwarts Indonesia",
+  "short_name": "Hogwarts ID",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#151515",
+  "theme_color": "#151515",
+  "icons": [
+    {
+      "src": "assets/brand/monogram.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

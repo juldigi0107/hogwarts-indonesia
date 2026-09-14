@@ -1,0 +1,402 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "slug": "sejarah",
+      "subtitle": "Arsip waktu",
+      "title": "Asal-usul Dunia Sihir"
+    },
+    {
+      "id": 2,
+      "slug": "hogwarts",
+      "subtitle": "Jantung kastil",
+      "title": "Hogwarts"
+    },
+    {
+      "id": 3,
+      "slug": "kementerian",
+      "subtitle": "Di balik kekuasaan",
+      "title": "Kementerian & Hukum"
+    },
+    {
+      "id": 4,
+      "slug": "makhluk",
+      "subtitle": "Catatan lapangan",
+      "title": "Makhluk Sihir"
+    },
+    {
+      "id": 5,
+      "slug": "grimoire",
+      "subtitle": "Lembar grimoire",
+      "title": "Mantra, Ramuan & Artefak"
+    },
+    {
+      "id": 6,
+      "slug": "herbologi",
+      "subtitle": "Bumi dan langit",
+      "title": "Herbologi & Astronomi"
+    },
+    {
+      "id": 7,
+      "slug": "keluarga-dan-konflik",
+      "subtitle": "Ikatan dan pilihan",
+      "title": "Keluarga & Konflik"
+    },
+    {
+      "id": 8,
+      "slug": "quidditch",
+      "subtitle": "Di atas lapangan",
+      "title": "Quidditch & Permainan"
+    },
+    {
+      "id": 9,
+      "slug": "lokasi",
+      "subtitle": "Jalan yang tersembunyi",
+      "title": "Lokasi Ikonik"
+    },
+    {
+      "id": 10,
+      "slug": "tokoh",
+      "subtitle": "Manusia di balik kisah",
+      "title": "Tokoh"
+    },
+    {
+      "id": 11,
+      "slug": "pertahanan",
+      "subtitle": "Menghadapi kegelapan",
+      "title": "Pertahanan & Roh"
+    },
+    {
+      "id": 12,
+      "slug": "teori-sihir",
+      "subtitle": "Batas pengetahuan",
+      "title": "Teori Sihir Tinggi"
+    }
+  ],
+  "articles": [
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "sejarah",
+      "id": 1,
+      "intro": "Hogwarts menjadi saksi pertemuan kehidupan sekolah dengan konflik dunia sihir.",
+      "note": "Interpretasi editorial: sekolah menjadi tempat pengetahuan diwariskan, tetapi juga tempat generasi baru mempertanyakan keputusan generasi sebelumnya.",
+      "related": [
+        "mengenal-hogwarts"
+      ],
+      "sections": [
+        {
+          "heading": "Di antara pelajaran dan rahasia",
+          "text": "Pembukaan Kamar Rahasia, Turnamen Triwizard dan Pertempuran Hogwarts menunjukkan bagaimana kastil berulang kali berada di pusat peristiwa besar. Membaca Hogwarts sebagai tempat bersejarah berarti memperhatikan siapa yang menguasai ruangnya, rahasia apa yang disimpan, dan bagaimana para murid menghadapi perubahan."
+        }
+      ],
+      "slug": "rahasia-di-balik-sekolah",
+      "source": {
+        "access_date": "2026-09-14",
+        "publisher": "Wizarding World Digital",
+        "title": "Sekolah yang menyimpan sejarah — referensi resmi",
+        "type": "web",
+        "url": "https://www.harrypotter.com/fact-file/locations/hogwarts",
+        "verification": "Diperiksa melalui pencarian web"
+      },
+      "status": "published",
+      "title": "Sekolah yang menyimpan sejarah"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "hogwarts",
+      "id": 2,
+      "intro": "Di balik dinding sekolah, ruang belajar berdampingan dengan lorong dan ruangan tersembunyi.",
+      "note": "Interpretasi editorial: arsitektur yang sulit ditebak membuat penjelajahan menjadi bagian dari proses belajar. Peta dalam aplikasi ini adalah navigasi editorial, bukan denah resmi.",
+      "related": [
+        "sidang-harry"
+      ],
+      "sections": [
+        {
+          "heading": "Kastil sebagai pengalaman",
+          "text": "Hogwarts memiliki 142 tangga. Jalur rahasia dan ruang tersembunyi membuat perjalanan di dalamnya tidak selalu sederhana. Potret-potret sihir membawa kepribadian dan kisah para subjeknya; potret mantan kepala sekolah bahkan dapat memberikan nasihat."
+        }
+      ],
+      "slug": "mengenal-hogwarts",
+      "source": {
+        "access_date": "2026-09-14",
+        "publisher": "Wizarding World Digital",
+        "title": "Hogwarts, lebih dari sebuah kastil — referensi resmi",
+        "type": "web",
+        "url": "https://www.harrypotter.com/features/10-cool-hogwarts-facts-to-impress-your-friends",
+        "verification": "Diperiksa melalui pencarian web"
+      },
+      "status": "published",
+      "title": "Hogwarts, lebih dari sebuah kastil"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "kementerian",
+      "id": 3,
+      "intro": "Penggunaan sihir di luar sekolah membawa Harry ke dalam proses pemeriksaan Kementerian.",
+      "note": "Interpretasi editorial: membaca adegan sidang membantu membedakan aturan tertulis, bukti, pembelaan dan kepentingan politik. Ini pembahasan fiksi, bukan panduan hukum nyata.",
+      "related": [
+        "hippogriff"
+      ],
+      "sections": [
+        {
+          "heading": "Hukum dan kekuasaan",
+          "text": "Dalam Harry Potter and the Order of the Phoenix, Harry menghadapi sidang setelah menggunakan Patronus saat serangan Dementor. Peristiwa ini memperlihatkan jarak antara konteks tindakan seseorang dan cara lembaga menilainya."
+        }
+      ],
+      "slug": "sidang-harry",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 8, The Hearing",
+        "title": "Harry Potter and the Order of the Phoenix",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Ketika Harry berhadapan dengan hukum"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "makhluk",
+      "id": 4,
+      "intro": "Pertemuan dengan Buckbeak memperlihatkan bahwa keberanian perlu disertai sikap hormat.",
+      "note": "Interpretasi editorial: makhluk sihir tidak sekadar menjadi latar petualangan; cara tokoh memperlakukannya juga mengungkap sikap mereka terhadap makhluk lain.",
+      "related": [
+        "wingardium-leviosa"
+      ],
+      "sections": [
+        {
+          "heading": "Pelajaran pertama Hagrid",
+          "text": "Hippogriff memadukan ciri elang dan kuda. Dalam pelajaran Pemeliharaan Satwa Gaib, murid diminta menghormati makhluk itu sebelum mendekat. Keberhasilan Harry dan insiden yang dialami Draco memperlihatkan dua hasil berbeda dalam pertemuan yang sama."
+        }
+      ],
+      "slug": "hippogriff",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 6, Talons and Tea Leaves",
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Hippogriff: penghormatan sebelum kedekatan"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "grimoire",
+      "id": 5,
+      "intro": "Mantra levitasi memperkenalkan hubungan antara pelafalan, gerakan dan latihan.",
+      "note": "Interpretasi editorial: pelajaran yang tampak kecil memperoleh arti baru ketika digunakan dalam situasi mendesak. Mantra ini merupakan unsur fiksi.",
+      "related": [
+        "mandrake"
+      ],
+      "sections": [
+        {
+          "heading": "Dari bulu menuju situasi genting",
+          "text": "Di kelas Mantra, murid berlatih mengangkat bulu. Hermione berhasil dengan memperhatikan teknik. Kemudian, dalam pertemuan dengan troll, Ron menerapkan mantra tersebut pada pentungan troll."
+        }
+      ],
+      "slug": "wingardium-leviosa",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 10, Hallowe'en",
+        "title": "Harry Potter and the Philosopher's Stone",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Wingardium Leviosa"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "herbologi",
+      "id": 6,
+      "intro": "Rumah kaca Hogwarts menyimpan tumbuhan yang menuntut pengetahuan khusus.",
+      "note": "Pembahasan ini hanya mengenai tumbuhan dalam cerita. Jangan memperlakukan tanaman nyata atau bahan kimia sebagai pengganti ramuan fantasi.",
+      "related": [
+        "permadani-black"
+      ],
+      "sections": [
+        {
+          "heading": "Belajar di rumah kaca",
+          "text": "Dalam pelajaran Profesor Sprout, para murid memindahkan Mandrake muda dengan pelindung telinga. Tangis Mandrake dewasa berbahaya, sedangkan tanaman ini juga memiliki peran dalam memulihkan korban yang membatu."
+        }
+      ],
+      "slug": "mandrake",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 6, Gilderoy Lockhart",
+        "title": "Harry Potter and the Chamber of Secrets",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Mandrake dan suara yang harus diwaspadai"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "keluarga-dan-konflik",
+      "id": 7,
+      "intro": "Sebuah permadani memperlihatkan bahwa silsilah juga dapat menjadi pernyataan kekuasaan.",
+      "note": "Interpretasi editorial: pohon keluarga tidak selalu merupakan catatan netral. Penghapusan nama mengungkap siapa yang memiliki kuasa untuk menentukan identitas keluarga.",
+      "related": [
+        "posisi-quidditch"
+      ],
+      "sections": [
+        {
+          "heading": "Siapa yang dianggap bagian keluarga?",
+          "text": "Sirius menjelaskan permadani keluarga Black kepada Harry di Grimmauld Place. Nama-nama yang dihapus menunjukkan bagaimana keluarga tersebut memperlakukan anggota yang tidak mengikuti nilai mereka."
+        }
+      ],
+      "slug": "permadani-black",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 6, The Noble and Most Ancient House of Black",
+        "title": "Harry Potter and the Order of the Phoenix",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Keluarga Black: nama, warisan, pilihan"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "quidditch",
+      "id": 8,
+      "intro": "Quidditch membagi perhatian antara mencetak angka, menjaga gawang dan mengejar Snitch.",
+      "note": "Interpretasi editorial: saat mengikuti pertandingan, perhatikan dua alur sekaligus—perebutan Quaffle dan pencarian Snitch. Keduanya berlangsung dalam ruang pertandingan yang sama.",
+      "related": [
+        "diagon-alley"
+      ],
+      "sections": [
+        {
+          "heading": "Memahami alur permainan",
+          "text": "Satu tim memiliki tiga Chaser, dua Beater, satu Keeper dan satu Seeker. Chaser menggunakan Quaffle untuk mencetak gol. Keeper menjaga gawang, Beater menangani Bludger, sedangkan Seeker mengejar Golden Snitch."
+        }
+      ],
+      "slug": "posisi-quidditch",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 10, Hallowe'en",
+        "title": "Harry Potter and the Philosopher's Stone",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Tujuh pemain, empat peran"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "lokasi",
+      "id": 9,
+      "intro": "Jalan perbelanjaan sihir mempertemukan kebutuhan sehari-hari dengan rasa takjub.",
+      "note": "Interpretasi editorial: Diagon Alley membangun dunia lewat kegiatan biasa—berbelanja—sehingga hal fantastis terasa menjadi bagian dari kehidupan sehari-hari.",
+      "related": [
+        "harry-potter"
+      ],
+      "sections": [
+        {
+          "heading": "Melalui jalan yang tersembunyi",
+          "text": "Dalam kunjungan pertamanya bersama Hagrid, Harry membeli kebutuhan sekolah dan mengenal lembaga serta toko dunia sihir. Gringotts dan Ollivanders menjadi bagian penting dari perjalanan itu."
+        }
+      ],
+      "slug": "diagon-alley",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 5, Diagon Alley",
+        "title": "Harry Potter and the Philosopher's Stone",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Diagon Alley: ambang dunia baru"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "tokoh",
+      "id": 10,
+      "intro": "Kisah seorang murid yang persahabatan dan pilihannya membentuk perjalanan panjang.",
+      "note": "Interpretasi editorial: membaca Harry hanya sebagai tokoh terkenal akan melewatkan bagaimana keputusan kecil, bantuan teman dan kesediaan mengambil risiko membentuk tindakannya.",
+      "related": [
+        "boggart"
+      ],
+      "sections": [
+        {
+          "heading": "Di luar reputasi",
+          "text": "Terbang dan menggunakan Jubah Gaib menjadi bagian dari kehidupan Harry. Hubungannya dengan Ron Weasley, Hermione Granger dan Lord Voldemort menempatkannya dalam jaringan persahabatan sekaligus konflik."
+        }
+      ],
+      "slug": "harry-potter",
+      "source": {
+        "access_date": "2026-09-14",
+        "publisher": "Wizarding World Digital",
+        "title": "Harry Potter — referensi resmi",
+        "type": "web",
+        "url": "https://www.harrypotter.com/fact-file/characters-and-pets/harry-potter",
+        "verification": "Diperiksa melalui pencarian web"
+      },
+      "status": "published",
+      "title": "Harry Potter"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "pertahanan",
+      "id": 11,
+      "intro": "Di kelas Lupin, pertahanan dimulai dengan mengenali apa yang ditakuti.",
+      "note": "Interpretasi editorial: adegan ini menjadikan ketakutan sesuatu yang dapat diamati dan diubah dalam kerangka cerita. Ini bukan terapi atau nasihat kesehatan mental.",
+      "related": [
+        "batas-perjalanan-waktu"
+      ],
+      "sections": [
+        {
+          "heading": "Riddikulus dan perubahan sudut pandang",
+          "text": "Boggart mengambil wujud yang ditakuti orang di hadapannya. Lupin mengajak murid menggunakan Riddikulus sambil membayangkan perubahan yang menggelikan pada wujud tersebut."
+        }
+      ],
+      "slug": "boggart",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 7, The Boggart in the Wardrobe",
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Boggart: memberi bentuk pada ketakutan"
+    },
+    {
+      "canon": "Canon utama; catatan dipisahkan sebagai interpretasi editorial",
+      "category": "teori-sihir",
+      "id": 12,
+      "intro": "Time-Turner menantang pemahaman tokoh tentang urutan sebab dan akibat.",
+      "note": "Interpretasi editorial: episode ini dapat dibaca sebagai rangkaian peristiwa yang saling terhubung. Model ini tidak boleh dianggap otomatis menjelaskan semua bentuk perjalanan waktu di seluruh karya tambahan.",
+      "related": [
+        "rahasia-di-balik-sekolah"
+      ],
+      "sections": [
+        {
+          "heading": "Melihat kembali sebuah peristiwa",
+          "text": "Harry dan Hermione kembali ke rangkaian peristiwa yang sebelumnya mereka alami. Sudut pandang baru mengubah pemahaman Harry terhadap sosok yang ia lihat di tepi danau."
+        }
+      ],
+      "slug": "batas-perjalanan-waktu",
+      "source": {
+        "author": "J. K. Rowling",
+        "locator": "Bab 21, Hermione's Secret",
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "type": "book",
+        "url": null,
+        "verification": "Referensi bab; belum diperiksa terhadap salinan buku dalam sesi ini"
+      },
+      "status": "published",
+      "title": "Perjalanan waktu dan batas pengetahuan"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Verify
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check frontend/js/app.js
+      - run: node --check worker/src/index.js
+      - run: npm test
+      - run: npm run build
+      - name: Validate SQL migrations
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          from pathlib import Path
+          db = sqlite3.connect(':memory:')
+          for p in sorted(Path('worker/migrations').glob('*.sql')):
+              db.executescript(p.read_text())
+          assert db.execute('SELECT count(*) FROM categories').fetchone()[0] == 12
+          assert db.execute('SELECT count(*) FROM content').fetchone()[0] == 12
+          assert not db.execute('PRAGMA foreign_key_check').fetchall()
+          print('SQLite migrations and foreign keys passed')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hogwarts-indonesia-frontend
+          path: dist
