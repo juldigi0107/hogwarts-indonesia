@@ -13,22 +13,43 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check frontend/js/app.js
-      - run: node --check worker/src/index.js
+      - name: Syntax check all application JavaScript
+        run: find frontend/js worker/src scripts \( -name '*.js' -o -name '*.mjs' \) -print0 | sort -z | xargs -0 -n1 node --check
       - run: npm test
       - run: npm run build
-      - name: Validate SQL migrations
+      - name: Validate SQL migrations and domain coverage
         run: |
           python3 - <<'PY'
           import sqlite3
           from pathlib import Path
           db = sqlite3.connect(':memory:')
           for p in sorted(Path('worker/migrations').glob('*.sql')):
+              print('apply', p)
               db.executescript(p.read_text())
+          required = {
+              'users','roles','user_roles','sessions','content','content_sections','categories',
+              'content_categories','characters','creatures','spells','potions','artifacts','plants',
+              'locations','events','timeline_links','relationships','glossary','sources','content_sources',
+              'assets','content_assets','bookmarks','view_history','daily_features','admin_audit_logs','settings',
+              'astronomy_entries'
+          }
+          actual = {r[0] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+          missing = sorted(required - actual)
+          assert not missing, f'missing tables: {missing}'
           assert db.execute('SELECT count(*) FROM categories').fetchone()[0] == 12
-          assert db.execute('SELECT count(*) FROM content').fetchone()[0] == 12
+          assert db.execute('SELECT count(*) FROM content').fetchone()[0] >= 12
+          assert db.execute('SELECT count(*) FROM characters').fetchone()[0] >= 10
+          assert db.execute('SELECT count(*) FROM creatures').fetchone()[0] >= 6
+          assert db.execute('SELECT count(*) FROM spells').fetchone()[0] >= 7
+          assert db.execute('SELECT count(*) FROM potions').fetchone()[0] >= 4
+          assert db.execute('SELECT count(*) FROM artifacts').fetchone()[0] >= 4
+          assert db.execute('SELECT count(*) FROM plants').fetchone()[0] >= 4
+          assert db.execute('SELECT count(*) FROM astronomy_entries').fetchone()[0] >= 4
+          assert db.execute('SELECT count(*) FROM glossary').fetchone()[0] >= 10
+          assert db.execute('SELECT count(*) FROM events').fetchone()[0] >= 8
+          assert db.execute('SELECT count(*) FROM relationships').fetchone()[0] >= 8
           assert not db.execute('PRAGMA foreign_key_check').fetchall()
-          print('SQLite migrations and foreign keys passed')
+          print('SQLite migrations, seeds and foreign keys passed')
           PY
       - uses: actions/upload-artifact@v4
         with:
