@@ -4,6 +4,6 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "build": "node scripts/build-v2.mjs"
+    "build": "node scripts/build-v2.mjs && node scripts/postbuild-graph.mjs"
   }
 }
