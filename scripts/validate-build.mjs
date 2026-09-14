@@ -1,0 +1,8 @@
+import {readFile,readdir,stat} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+const required=['dist/index.html','dist/offline.html','dist/admin.html','dist/peta/index.html','dist/timeline/index.html','dist/glosarium/index.html','dist/relasi/index.html','dist/astronomi/index.html','dist/assets/generated/castle-entry.svg','dist/assets/generated/castle-map.svg','dist/data/catalog.json','dist/data/reference.json','dist/data/astronomy.json','dist/data/relationships.json','dist/js/app-v2.js','dist/js/pages-graph.js','dist/css/graph.css','dist/service-worker.js','dist/sitemap.xml','dist/robots.txt'];
+const missing=required.filter(p=>!existsSync(p));if(missing.length)throw new Error('Missing build files: '+missing.join(', '));
+const sitemap=await readFile('dist/sitemap.xml','utf8');for(const path of ['/hogwarts/','/peta/','/timeline/','/glosarium/','/relasi/','/astronomi/']){if(!sitemap.includes('https://juldigi0107.github.io/hogwarts-indonesia'+path))throw new Error('Sitemap missing '+path)}
+const sw=await readFile('dist/service-worker.js','utf8');for(const asset of ['pages-graph.js','relationships.json','castle-map.svg'])if(!sw.includes(asset))throw new Error('Service worker core missing '+asset);
+const catalog=JSON.parse(await readFile('dist/data/catalog.json','utf8'));for(const a of catalog.articles){if(!existsSync(`dist/artikel/${a.slug}/index.html`))throw new Error('Missing article route '+a.slug)}
+console.log(`Build validation passed: ${catalog.categories.length} collections, ${catalog.articles.length} article pages, relationship graph and exploration routes present.`);
