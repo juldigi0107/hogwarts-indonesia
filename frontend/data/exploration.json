@@ -1,0 +1,22 @@
+{
+  "mapNodes": [
+    {"id":"great-hall","label":"Great Hall","route":"/hogwarts","x":52,"y":52,"group":"kastil","description":"Pusat eksplorasi dan pintu masuk menuju arsip Hogwarts."},
+    {"id":"library","label":"Library","route":"/index","x":40,"y":42,"group":"kastil","description":"Indeks pengetahuan dan ruang pencarian utama."},
+    {"id":"astronomy-tower","label":"Astronomy Tower","route":"/astronomi","x":66,"y":23,"group":"kastil","description":"Jalur menuju observatorium dan arsip astronomi."},
+    {"id":"greenhouses","label":"Greenhouses","route":"/herbologi","x":25,"y":68,"group":"grounds","description":"Rumah kaca dan arsip Herbologi."},
+    {"id":"dungeons","label":"Dungeons","route":"/grimoire/ramuan","x":53,"y":78,"group":"kastil","description":"Ruang bawah tanah menuju arsip ramuan."},
+    {"id":"courtyard","label":"Courtyard","route":"/sejarah","x":42,"y":61,"group":"kastil","description":"Halaman terbuka menuju arsip sejarah dan peristiwa."},
+    {"id":"forbidden-forest","label":"Forbidden Forest","route":"/makhluk","x":13,"y":43,"group":"grounds","description":"Pintu menuju field guide makhluk sihir."},
+    {"id":"quidditch-grounds","label":"Quidditch Grounds","route":"/quidditch","x":83,"y":68,"group":"grounds","description":"Lapangan dan arsip permainan sihir."},
+    {"id":"common-room-archives","label":"Common Room Archives","route":"/keluarga-dan-konflik","x":62,"y":48,"group":"kastil","description":"Arsip keluarga, afiliasi, dan konflik."},
+    {"id":"ministry-portal","label":"Ministry Portal","route":"/kementerian","x":77,"y":45,"group":"portal","description":"Portal editorial menuju pemerintahan dan hukum sihir."},
+    {"id":"diagon-alley-portal","label":"Diagon Alley Portal","route":"/lokasi","x":29,"y":31,"group":"portal","description":"Portal menuju kawasan perdagangan sihir dan lokasi ikonik."},
+    {"id":"hogsmeade-portal","label":"Hogsmeade Portal","route":"/lokasi","x":88,"y":33,"group":"portal","description":"Portal menuju desa sihir di dekat Hogwarts."}
+  ],
+  "dailyFeatures": [
+    {"type":"fact","title":"Empat pendiri Hogwarts","summary":"Hogwarts didirikan pada abad ke-10 oleh Godric Gryffindor, Rowena Ravenclaw, Helga Hufflepuff, dan Salazar Slytherin.","route":"/hogwarts"},
+    {"type":"creature","title":"Hippogriff","summary":"Makhluk yang menuntut pendekatan penuh hormat sebelum seseorang mendekatinya.","route":"/artikel/hippogriff"},
+    {"type":"spell","title":"Wingardium Leviosa","summary":"Mantra levitasi yang menjadi salah satu pelajaran awal penting dalam kelas Charms.","route":"/artikel/wingardium-leviosa"},
+    {"type":"article","title":"Hogwarts, lebih dari sebuah kastil","summary":"Membaca Hogwarts sebagai ruang belajar, sejarah, dan misteri.","route":"/artikel/mengenal-hogwarts"}
+  ]
+}
