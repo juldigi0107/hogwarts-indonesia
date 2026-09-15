@@ -1,0 +1,137 @@
+name: Deploy Cloudflare API
+
+on:
+  workflow_dispatch:
+    inputs:
+      worker_url_override:
+        description: Optional full workers.dev/custom URL if Wrangler output cannot be parsed
+        required: false
+        type: string
+      publish_runtime_config:
+        description: Connect GitHub Pages runtime-config.json after successful smoke tests
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+      CF_D1_DATABASE_NAME: ${{ secrets.CF_D1_DATABASE_NAME }}
+      CF_RATE_LIMIT_NAMESPACE_ID: ${{ secrets.CF_RATE_LIMIT_NAMESPACE_ID }}
+      CF_ADMIN_TOKEN: ${{ secrets.CF_ADMIN_TOKEN }}
+      CF_WORKER_NAME: hogwarts-indonesia-api
+      CF_ALLOWED_ORIGINS: https://juldigi0107.github.io
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fail closed when production configuration is incomplete
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID CF_D1_DATABASE_ID CF_D1_DATABASE_NAME CF_RATE_LIMIT_NAMESPACE_ID CF_ADMIN_TOKEN)
+          for key in "${required[@]}"; do
+            if [ -z "${!key:-}" ]; then
+              echo "Missing required GitHub secret: $key" >&2
+              exit 1
+            fi
+          done
+          if [ "${#CF_ADMIN_TOKEN}" -lt 32 ]; then
+            echo 'CF_ADMIN_TOKEN must contain at least 32 characters.' >&2
+            exit 1
+          fi
+      - name: Verify application before touching production
+        run: |
+          npm test
+          npm run build
+          npm run seed:generate
+      - name: Render validated Wrangler production config
+        run: npm run cf:config
+      - name: Validate Wrangler configuration
+        run: npx --yes wrangler@4 deploy --dry-run --config worker/wrangler.production.json
+      - name: Apply D1 migrations remotely
+        run: npx --yes wrangler@4 d1 migrations apply DB --remote --config worker/wrangler.production.json
+      - name: Import deterministic scale seed remotely
+        run: npx --yes wrangler@4 d1 execute DB --remote --file worker/seeds/scale.sql --config worker/wrangler.production.json
+      - name: Install admin token secret
+        shell: bash
+        run: printf '%s' "$CF_ADMIN_TOKEN" | npx --yes wrangler@4 secret put ADMIN_TOKEN --config worker/wrangler.production.json
+      - name: Deploy Worker
+        id: worker
+        shell: bash
+        env:
+          URL_OVERRIDE: ${{ inputs.worker_url_override }}
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 deploy --config worker/wrangler.production.json 2>&1 | tee /tmp/wrangler-deploy.log
+          url="${URL_OVERRIDE%/}"
+          if [ -z "$url" ]; then
+            url="$(grep -Eo 'https://[A-Za-z0-9.-]+\.workers\.dev' /tmp/wrangler-deploy.log | tail -1 || true)"
+          fi
+          if ! printf '%s' "$url" | grep -Eq '^https://[^/]+(/.*)?$'; then
+            echo 'Could not determine a valid deployed Worker URL.' >&2
+            exit 1
+          fi
+          echo "url=${url%/}" >> "$GITHUB_OUTPUT"
+      - name: Smoke-test public API, D1 scale and CORS
+        shell: bash
+        env:
+          WORKER_URL: ${{ steps.worker.outputs.url }}
+        run: |
+          set -euo pipefail
+          origin='https://juldigi0107.github.io'
+          retry(){ for i in $(seq 1 10); do if "$@"; then return 0; fi; sleep 6; done; return 1; }
+          retry curl --fail --silent --show-error --max-time 20 "$WORKER_URL/api/v1/health" -o /tmp/health.json
+          node -e "const d=require('/tmp/health.json');if(d.status!=='ok'||d.database!=='reachable')process.exit(1)"
+          for endpoint in characters creatures spells; do
+            retry curl --fail --silent --show-error --max-time 20 -H "Origin: $origin" "$WORKER_URL/api/v1/$endpoint" -o "/tmp/$endpoint.json"
+          done
+          node -e "const fs=require('fs');for(const [f,n] of [['characters',100],['creatures',50],['spells',70]]){const d=JSON.parse(fs.readFileSync('/tmp/'+f+'.json'));if(!Array.isArray(d.items)||d.items.length<n)throw Error(f+' below target: '+(d.items?.length||0))}"
+          headers="$(curl --silent --show-error --dump-header - --output /dev/null -H "Origin: $origin" "$WORKER_URL/api/v1/characters" | tr -d '\r')"
+          printf '%s\n' "$headers" | grep -qi '^access-control-allow-origin: https://juldigi0107.github.io$'
+          code="$(curl --silent --output /tmp/forbidden.json --write-out '%{http_code}' -H 'Origin: https://example.invalid' "$WORKER_URL/api/v1/characters")"
+          test "$code" = '403'
+      - name: Smoke-test protected diagnostics
+        shell: bash
+        env:
+          WORKER_URL: ${{ steps.worker.outputs.url }}
+        run: |
+          set -euo pipefail
+          unauthorized="$(curl --silent --output /tmp/admin-unauthorized.json --write-out '%{http_code}' "$WORKER_URL/api/v1/admin/diagnostics")"
+          test "$unauthorized" = '401'
+          curl --fail --silent --show-error -H "Authorization: Bearer $CF_ADMIN_TOKEN" "$WORKER_URL/api/v1/admin/diagnostics" -o /tmp/diagnostics.json
+          node -e "const d=require('/tmp/diagnostics.json');if(!d.scaleReady)throw Error('D1 scale targets are not ready');if(!d.summary)throw Error('diagnostics summary missing')"
+      - name: Publish verified API URL to frontend runtime config
+        if: ${{ inputs.publish_runtime_config }}
+        shell: bash
+        env:
+          WORKER_URL: ${{ steps.worker.outputs.url }}
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          node -e "const fs=require('fs');fs.writeFileSync('frontend/data/runtime-config.json',JSON.stringify({apiBase:process.env.WORKER_URL,environment:'production',verifiedAt:new Date().toISOString(),note:'Generated only after Worker, D1, CORS and diagnostics smoke tests pass.'},null,2)+'\n')"
+          if git diff --quiet -- frontend/data/runtime-config.json; then
+            echo 'Runtime config already points to this verified API.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add frontend/data/runtime-config.json
+          git commit -m 'chore(release): connect frontend to verified Cloudflare API'
+          git push origin HEAD:main
