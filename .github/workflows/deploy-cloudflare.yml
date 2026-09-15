@@ -1,6 +1,16 @@
 name: Deploy Cloudflare API
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - 'scripts/cloudflare/**'
+      - 'scripts/seed/**'
+      - 'frontend/data/reference-scale.json'
+      - 'frontend/data/creatures-scale.json'
+      - 'frontend/data/spells-scale.json'
+      - '.github/workflows/deploy-cloudflare.yml'
   workflow_dispatch:
     inputs:
       worker_url_override:
@@ -80,7 +90,8 @@ jobs:
         run: |
           set -euo pipefail
           npx --yes wrangler@4 deploy --config worker/wrangler.production.json 2>&1 | tee /tmp/wrangler-deploy.log
-          url="${URL_OVERRIDE%/}"
+          url="${URL_OVERRIDE:-}"
+          url="${url%/}"
           if [ -z "$url" ]; then
             url="$(grep -Eo 'https://[A-Za-z0-9.-]+\.workers\.dev' /tmp/wrangler-deploy.log | tail -1 || true)"
           fi
@@ -118,7 +129,7 @@ jobs:
           curl --fail --silent --show-error -H "Authorization: Bearer $CF_ADMIN_TOKEN" "$WORKER_URL/api/v1/admin/diagnostics" -o /tmp/diagnostics.json
           node -e "const d=require('/tmp/diagnostics.json');if(!d.scaleReady)throw Error('D1 scale targets are not ready');if(!d.summary)throw Error('diagnostics summary missing')"
       - name: Publish verified API URL to frontend runtime config
-        if: ${{ inputs.publish_runtime_config }}
+        if: ${{ github.event_name == 'push' || inputs.publish_runtime_config }}
         shell: bash
         env:
           WORKER_URL: ${{ steps.worker.outputs.url }}
