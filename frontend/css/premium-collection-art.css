@@ -1,0 +1,32 @@
+/* Twelve original collection portals. Pure CSS art direction avoids third-party visual identity. */
+.collection-card{--portal-ink:#d8ba75;--portal-a:#1c2b3c;--portal-b:#654925;position:relative;isolation:isolate;overflow:hidden}
+.collection-card:before{content:"";position:absolute;z-index:-2;inset:0;background:radial-gradient(circle at 72% 24%,color-mix(in srgb,var(--portal-ink) 18%,transparent),transparent 17%),repeating-linear-gradient(112deg,transparent 0 52px,rgba(255,255,255,.015) 53px 54px),linear-gradient(145deg,var(--portal-a),var(--portal-b));opacity:.92}
+.collection-card:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(4,8,12,.04),rgba(5,9,14,.24) 38%,rgba(5,9,14,.96) 92%)}
+.collection-card[href="#/sejarah"]{--portal-a:#321d1b;--portal-b:#76562d;--portal-ink:#d4a45e}
+.collection-card[href="#/sejarah"]:before{background:repeating-linear-gradient(90deg,transparent 0 13%,rgba(216,186,117,.035) 13.2% 13.4%),radial-gradient(ellipse at 76% 18%,rgba(197,150,77,.22),transparent 24%),linear-gradient(145deg,#2c1b1b,#6b4b28)}
+.collection-card[href="#/hogwarts"]{--portal-a:#182b40;--portal-b:#66502e;--portal-ink:#ddbd75}
+.collection-card[href="#/hogwarts"]:before{background:linear-gradient(120deg,transparent 54%,rgba(219,187,116,.07) 54.2% 55%,transparent 55.2%),repeating-linear-gradient(90deg,transparent 0 12%,rgba(255,255,255,.018) 12.2% 12.5%),linear-gradient(145deg,#17283b,#5b472b)}
+.collection-card[href="#/kementerian"]{--portal-a:#143631;--portal-b:#31574f;--portal-ink:#91bca9}
+.collection-card[href="#/kementerian"]:before{background:repeating-linear-gradient(90deg,transparent 0 17%,rgba(139,190,169,.045) 17.2% 17.5%),radial-gradient(circle at 76% 22%,rgba(116,174,151,.2),transparent 20%),linear-gradient(145deg,#12312e,#294d48)}
+.collection-card[href="#/makhluk"]{--portal-a:#143328;--portal-b:#3d4b29;--portal-ink:#94b47d}
+.collection-card[href="#/makhluk"]:before{background:radial-gradient(ellipse at 78% 25%,rgba(132,169,105,.2),transparent 18%),repeating-radial-gradient(ellipse at 88% 20%,transparent 0 34px,rgba(148,180,125,.035) 35px 36px),linear-gradient(145deg,#123027,#354527)}
+.collection-card[href="#/grimoire"]{--portal-a:#2b2038;--portal-b:#623b5d;--portal-ink:#c49ad3}
+.collection-card[href="#/grimoire"]:before{background:conic-gradient(from 20deg at 77% 26%,transparent 0 9%,rgba(194,150,211,.05) 9% 10%,transparent 10% 19%,rgba(194,150,211,.04) 19% 20%,transparent 20%),radial-gradient(circle at 77% 26%,rgba(175,123,195,.23),transparent 17%),linear-gradient(145deg,#281e35,#53334f)}
+.collection-card[href="#/herbologi"]{--portal-a:#153629;--portal-b:#58602f;--portal-ink:#a9bd76}
+.collection-card[href="#/herbologi"]:before{background:repeating-linear-gradient(65deg,transparent 0 46px,rgba(164,186,112,.035) 47px 48px),radial-gradient(ellipse at 75% 20%,rgba(151,178,91,.22),transparent 21%),linear-gradient(145deg,#143327,#4d592d)}
+.collection-card[href="#/astronomi"]{--portal-a:#142849;--portal-b:#34335d;--portal-ink:#a4bae4}
+.collection-card[href="#/astronomi"]:before{background:radial-gradient(circle at 81% 17%,rgba(238,229,194,.55) 0 1px,transparent 2px),radial-gradient(circle at 68% 29%,rgba(238,229,194,.38) 0 1px,transparent 2px),radial-gradient(circle at 89% 39%,rgba(238,229,194,.32) 0 1px,transparent 2px),radial-gradient(circle at 76% 24%,rgba(113,143,202,.24),transparent 22%),linear-gradient(145deg,#112542,#2e3159)}
+.collection-card[href="#/keluarga-dan-konflik"]{--portal-a:#401e26;--portal-b:#5b4030;--portal-ink:#d08e7d}
+.collection-card[href="#/keluarga-dan-konflik"]:before{background:linear-gradient(64deg,transparent 49.5%,rgba(208,142,125,.08) 49.7% 50.3%,transparent 50.5%),linear-gradient(-64deg,transparent 49.5%,rgba(208,142,125,.06) 49.7% 50.3%,transparent 50.5%),linear-gradient(145deg,#3b1d24,#503a2d)}
+.collection-card[href="#/quidditch"]{--portal-a:#372d1d;--portal-b:#60491f;--portal-ink:#dab85e}
+.collection-card[href="#/quidditch"]:before{background:radial-gradient(ellipse at 77% 24%,transparent 0 16%,rgba(218,184,94,.08) 16.3% 17%,transparent 17.3%),linear-gradient(90deg,transparent 76%,rgba(218,184,94,.06) 76.2% 76.5%,transparent 76.7%),linear-gradient(145deg,#342a1c,#56421e)}
+.collection-card[href="#/lokasi"]{--portal-a:#203638;--portal-b:#55472f;--portal-ink:#a5bbb2}
+.collection-card[href="#/lokasi"]:before{background:repeating-radial-gradient(circle at 78% 24%,transparent 0 38px,rgba(165,187,178,.04) 39px 40px),linear-gradient(145deg,#1d3235,#4d422e)}
+.collection-card[href="#/tokoh"]{--portal-a:#302a39;--portal-b:#594133;--portal-ink:#ceb080}
+.collection-card[href="#/tokoh"]:before{background:radial-gradient(ellipse at 78% 24%,rgba(205,174,126,.17),transparent 16%),linear-gradient(90deg,transparent 72%,rgba(205,174,126,.04) 72.2% 72.5%,transparent 72.7%),linear-gradient(145deg,#2c2735,#503b31)}
+.collection-card[href="#/pertahanan"]{--portal-a:#351d23;--portal-b:#313947;--portal-ink:#cd887b}
+.collection-card[href="#/pertahanan"]:before{background:radial-gradient(circle at 77% 24%,transparent 0 11%,rgba(203,130,117,.08) 11.3% 12%,transparent 12.3%),radial-gradient(circle at 77% 24%,rgba(174,91,80,.2),transparent 22%),linear-gradient(145deg,#321c22,#2c3542)}
+.collection-card[href="#/teori-sihir"]{--portal-a:#242e48;--portal-b:#593c62;--portal-ink:#b39bd1}
+.collection-card[href="#/teori-sihir"]:before{background:conic-gradient(from 0deg at 78% 25%,transparent 0 12%,rgba(179,155,209,.045) 12.2% 12.8%,transparent 13% 25%,rgba(179,155,209,.04) 25.2% 25.8%,transparent 26%),radial-gradient(circle at 78% 25%,rgba(146,111,175,.2),transparent 19%),linear-gradient(145deg,#222b44,#4e3758)}
+.collection-card .number{position:relative}.collection-card .number:after{content:"";display:block;width:42px;height:1px;margin-top:.7rem;background:var(--portal-ink);opacity:.75}
+@media(max-width:720px){.collection-card{min-height:330px}.collection-card:before{background-size:cover}}
